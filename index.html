@@ -8,188 +8,63 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #f5f6fa;
-      --surface: #ffffff;
-      --surface2: #f0f2f8;
-      --border: rgba(0,0,0,0.08);
-      --border2: rgba(0,0,0,0.14);
-      --text-primary: #0f1923;
-      --text-secondary: #5a6272;
-      --text-tertiary: #9aa0ad;
-      --blue-dark: #042C53;
-      --blue-mid: #185FA5;
-      --blue-light: #B5D4F4;
-      --teal: #1D9E75;
-      --teal-light: #E1F5EE;
-      --teal-dark: #0F6E56;
-      --purple: #534AB7;
-      --purple-light: #EEEDFE;
-      --purple-dark: #3C3489;
-      --amber: #BA7517;
-      --amber-light: #FAEEDA;
-      --amber-dark: #854F0B;
-      --radius-md: 8px;
-      --radius-lg: 12px;
+      --bg: #f5f6fa; --surface: #ffffff; --surface2: #f0f2f8;
+      --border: rgba(0,0,0,0.08); --border2: rgba(0,0,0,0.14);
+      --text-primary: #0f1923; --text-secondary: #5a6272; --text-tertiary: #9aa0ad;
+      --blue-dark: #042C53; --blue-mid: #185FA5; --blue-light: #B5D4F4;
+      --teal: #1D9E75; --teal-light: #E1F5EE; --teal-dark: #0F6E56;
+      --purple: #534AB7; --purple-light: #EEEDFE; --purple-dark: #3C3489;
+      --amber: #BA7517; --amber-light: #FAEEDA; --radius-md: 8px; --radius-lg: 12px;
     }
-
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0d1117;
-        --surface: #161b22;
-        --surface2: #1e2430;
-        --border: rgba(255,255,255,0.08);
-        --border2: rgba(255,255,255,0.14);
-        --text-primary: #e6edf3;
-        --text-secondary: #8b949e;
-        --text-tertiary: #4d5566;
-        --blue-light: #0C447C;
-        --teal-light: #04342C;
-        --purple-light: #26215C;
-        --amber-light: #412402;
+        --bg: #0d1117; --surface: #161b22; --border: rgba(255,255,255,0.08);
+        --border2: rgba(255,255,255,0.14); --text-primary: #e6edf3;
+        --text-secondary: #8b949e; --text-tertiary: #4d5566;
+        --teal-light: #04342C; --purple-light: #26215C; --amber-light: #412402;
       }
     }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text-primary);
-      min-height: 100vh;
-      padding: 0;
-    }
-
-    /* Top bar */
-    .topbar {
-      background: var(--blue-dark);
-      padding: 0 2rem;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text-primary); min-height: 100vh; }
+    .topbar { background: var(--blue-dark); padding: 0 2rem; height: 56px; display: flex; align-items: center; justify-content: space-between; }
     .topbar-left { display: flex; align-items: center; gap: 12px; }
     .topbar-icon { font-size: 22px; color: var(--blue-light); }
-    .topbar-title { font-size: 16px; font-weight: 500; color: #ffffff; letter-spacing: -0.2px; }
+    .topbar-title { font-size: 16px; font-weight: 500; color: #ffffff; }
     .topbar-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 1px; }
     .topbar-right { display: flex; align-items: center; gap: 8px; }
     .status-pill { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); border-radius: 20px; padding: 4px 12px; font-size: 12px; color: rgba(255,255,255,0.7); }
     .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #1D9E75; }
-    .time-display { font-size: 12px; color: rgba(255,255,255,0.5); font-variant-numeric: tabular-nums; }
-
-    /* Main layout */
+    .time-display { font-size: 12px; color: rgba(255,255,255,0.5); }
     .main { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.5rem; }
-
-    /* Welcome */
     .welcome { margin-bottom: 2rem; }
     .welcome-greeting { font-size: 20px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
     .welcome-sub { font-size: 14px; color: var(--text-secondary); }
-
-    /* Section label */
-    .section-label {
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--text-tertiary);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    /* Cards grid */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 14px;
-      margin-bottom: 2.5rem;
-    }
-
-    .app-card {
-      background: var(--surface);
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.4rem 1.25rem;
-      text-decoration: none;
-      display: block;
-      position: relative;
-      transition: border-color 0.15s, transform 0.12s, box-shadow 0.15s;
-    }
-    .app-card:hover {
-      border-color: var(--border2);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
-    }
-    .app-card:active { transform: translateY(0); }
-
-    .card-badge {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      padding: 3px 8px;
-      border-radius: 4px;
-      display: inline-block;
-      margin-bottom: 14px;
-    }
+    .section-label { font-size: 11px; font-weight: 500; color: var(--text-tertiary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 2.5rem; }
+    .app-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 1.4rem 1.25rem; text-decoration: none; display: block; position: relative; transition: border-color 0.15s, transform 0.12s, box-shadow 0.15s; }
+    .app-card:hover { border-color: var(--border2); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.07); }
+    .card-badge { font-size: 10px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; display: inline-block; margin-bottom: 14px; }
     .badge-netlify { background: var(--teal-light); color: var(--teal-dark); }
     .badge-github { background: var(--purple-light); color: var(--purple-dark); }
-
-    .card-icon-wrap {
-      width: 42px; height: 42px;
-      border-radius: var(--radius-md);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 14px;
-      font-size: 22px;
-    }
+    .card-icon-wrap { width: 42px; height: 42px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 22px; }
     .icon-teal { background: var(--teal-light); color: var(--teal); }
     .icon-blue { background: #E6F1FB; color: var(--blue-mid); }
     .icon-purple { background: var(--purple-light); color: var(--purple); }
     .icon-amber { background: var(--amber-light); color: var(--amber); }
-
     .card-name { font-size: 15px; font-weight: 500; color: var(--text-primary); margin-bottom: 5px; }
     .card-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.55; }
-    .card-arrow {
-      position: absolute; top: 1.25rem; right: 1.25rem;
-      font-size: 15px; color: var(--text-tertiary);
-      transition: color 0.15s;
-    }
-    .app-card:hover .card-arrow { color: var(--text-secondary); }
-
-    /* Info bar */
-    .info-bar {
-      background: var(--surface);
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+    .card-arrow { position: absolute; top: 1.25rem; right: 1.25rem; font-size: 15px; color: var(--text-tertiary); }
+    .info-bar { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
     .info-stat { text-align: center; }
     .info-stat-num { font-size: 20px; font-weight: 500; color: var(--text-primary); }
     .info-stat-label { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
     .info-divider { width: 0.5px; height: 36px; background: var(--border); }
-
-    /* Footer */
-    .footer {
-      margin-top: 2.5rem;
-      padding-top: 1.25rem;
-      border-top: 0.5px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 0.5px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
     .footer-text { font-size: 12px; color: var(--text-tertiary); }
     .footer-brand { font-size: 12px; color: var(--text-tertiary); display: flex; align-items: center; gap: 6px; }
-    .footer-brand i { font-size: 14px; }
   </style>
 </head>
 <body>
-
-  <!-- Top navigation bar -->
   <div class="topbar">
     <div class="topbar-left">
       <i class="ti ti-command topbar-icon" aria-hidden="true"></i>
@@ -199,135 +74,75 @@
       </div>
     </div>
     <div class="topbar-right">
-      <div class="status-pill">
-        <span class="status-dot"></span>
-        All systems online
-      </div>
+      <div class="status-pill"><span class="status-dot"></span>All systems online</div>
       <div class="time-display" id="clock"></div>
     </div>
   </div>
-
-  <!-- Main content -->
   <div class="main">
-
     <div class="welcome">
       <div class="welcome-greeting">Good morning, Dr. Asiri</div>
       <div class="welcome-sub">Select a platform to open it in a new tab.</div>
     </div>
-
-    <div class="section-label">Platforms &amp; Dashboards</div>
-
+    <div class="section-label">Platforms & Dashboards</div>
     <div class="cards-grid">
-
-      <!-- Card 1: Abrar Dashboard -->
       <a class="app-card" href="https://benevolent-cheesecake-547260.netlify.app/" target="_blank" rel="noopener">
         <span class="card-badge badge-netlify">Netlify</span>
-        <div class="card-icon-wrap icon-teal">
-          <i class="ti ti-chart-bar" aria-hidden="true"></i>
-        </div>
+        <div class="card-icon-wrap icon-teal"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
         <div class="card-name">Abrar Dashboard</div>
-        <div class="card-desc">Maternity statistics &amp; Ministry 5_BD monthly reports</div>
+        <div class="card-desc">Maternity statistics & Ministry 5_BD monthly reports</div>
         <i class="ti ti-external-link card-arrow" aria-hidden="true"></i>
       </a>
-
-      <!-- Card 2: Projects & Research -->
       <a class="app-card" href="https://sparkling-meringue-085a51.netlify.app/" target="_blank" rel="noopener">
         <span class="card-badge badge-netlify">Netlify</span>
-        <div class="card-icon-wrap icon-blue">
-          <i class="ti ti-clipboard-list" aria-hidden="true"></i>
-        </div>
-        <div class="card-name">Projects &amp; Research</div>
-        <div class="card-desc">QI initiatives &amp; research study management</div>
+        <div class="card-icon-wrap icon-blue"><i class="ti ti-clipboard-list" aria-hidden="true"></i></div>
+        <div class="card-name">Projects & Research</div>
+        <div class="card-desc">QI initiatives & research study management</div>
         <i class="ti ti-external-link card-arrow" aria-hidden="true"></i>
       </a>
-
-      <!-- Card 3: Secretarial Hub -->
       <a class="app-card" href="https://classy-gelato-65e2f8.netlify.app/" target="_blank" rel="noopener">
         <span class="card-badge badge-netlify">Netlify</span>
-        <div class="card-icon-wrap icon-purple">
-          <i class="ti ti-users" aria-hidden="true"></i>
-        </div>
+        <div class="card-icon-wrap icon-purple"><i class="ti ti-users" aria-hidden="true"></i></div>
         <div class="card-name">Secretarial Hub</div>
-        <div class="card-desc">6-person secretary team task &amp; workflow management</div>
+        <div class="card-desc">6-person secretary team task & workflow management</div>
         <i class="ti ti-external-link card-arrow" aria-hidden="true"></i>
       </a>
-
-      <!-- Card 4: Delivery Dashboard -->
       <a class="app-card" href="https://hendaletreby.github.io/Women-s-Health-Hospital-KSMC-Delivery-Dashboard/" target="_blank" rel="noopener">
         <span class="card-badge badge-github">GitHub</span>
-        <div class="card-icon-wrap icon-amber">
-          <i class="ti ti-baby-carriage" aria-hidden="true"></i>
-        </div>
+        <div class="card-icon-wrap icon-amber"><i class="ti ti-baby-carriage" aria-hidden="true"></i></div>
         <div class="card-name">Delivery Dashboard</div>
-        <div class="card-desc">KSMC delivery statistics &amp; obstetric data tracking</div>
+        <div class="card-desc">KSMC delivery statistics & obstetric data tracking</div>
         <i class="ti ti-external-link card-arrow" aria-hidden="true"></i>
       </a>
-
     </div>
-
-    <!-- Info bar -->
     <div class="info-bar">
-      <div class="info-stat">
-        <div class="info-stat-num">4</div>
-        <div class="info-stat-label">Platforms</div>
-      </div>
+      <div class="info-stat"><div class="info-stat-num">4</div><div class="info-stat-label">Platforms</div></div>
       <div class="info-divider"></div>
-      <div class="info-stat">
-        <div class="info-stat-num">3</div>
-        <div class="info-stat-label">Netlify</div>
-      </div>
+      <div class="info-stat"><div class="info-stat-num">3</div><div class="info-stat-label">Netlify</div></div>
       <div class="info-divider"></div>
-      <div class="info-stat">
-        <div class="info-stat-num">1</div>
-        <div class="info-stat-label">GitHub Pages</div>
-      </div>
+      <div class="info-stat"><div class="info-stat-num">1</div><div class="info-stat-label">GitHub Pages</div></div>
       <div class="info-divider"></div>
-      <div class="info-stat">
-        <div class="info-stat-num" id="date-display">—</div>
-        <div class="info-stat-label">Today</div>
-      </div>
+      <div class="info-stat"><div class="info-stat-num" id="date-display">—</div><div class="info-stat-label">Today</div></div>
     </div>
-
-    <!-- Footer -->
     <div class="footer">
       <div class="footer-text">WHH Command Dashboard · King Saud Medical City, Riyadh</div>
-      <div class="footer-brand">
-        <i class="ti ti-heart" aria-hidden="true"></i>
-        Women's Health Hospital
-      </div>
+      <div class="footer-brand"><i class="ti ti-heart"></i> Women's Health Hospital</div>
     </div>
-
   </div>
-
   <script>
     function updateClock() {
       const now = new Date();
-      const timeStr = now.toLocaleTimeString('en-SA', { hour: '2-digit', minute: '2-digit', hour12: true });
-      const el = document.getElementById('clock');
-      if (el) el.textContent = timeStr;
+      document.getElementById('clock').textContent = now.toLocaleTimeString('en-SA', { hour: '2-digit', minute: '2-digit', hour12: true });
     }
-
     function updateDate() {
-      const now = new Date();
-      const dateStr = now.toLocaleDateString('en-SA', { day: 'numeric', month: 'short', year: 'numeric' });
-      const el = document.getElementById('date-display');
-      if (el) el.textContent = dateStr;
+      document.getElementById('date-display').textContent = new Date().toLocaleDateString('en-SA', { day: 'numeric', month: 'short', year: 'numeric' });
     }
-
     function greet() {
-      const hour = new Date().getHours();
+      const h = new Date().getHours();
       const el = document.querySelector('.welcome-greeting');
-      if (!el) return;
-      if (hour < 12) el.textContent = 'Good morning, Dr. Asiri';
-      else if (hour < 17) el.textContent = 'Good afternoon, Dr. Asiri';
-      else el.textContent = 'Good evening, Dr. Asiri';
+      el.textContent = h < 12 ? 'Good morning, Dr. Asiri' : h < 17 ? 'Good afternoon, Dr. Asiri' : 'Good evening, Dr. Asiri';
     }
-
-    updateClock();
-    updateDate();
-    greet();
+    updateClock(); updateDate(); greet();
     setInterval(updateClock, 1000);
   </script>
-
 </body>
 </html>
